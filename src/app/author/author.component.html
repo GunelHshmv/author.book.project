@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="main">
+               <div class="cont">
+            <div class="headPart">
+              <div class="contLeft">
+             <h3>AUTHOR PAGE</h3>
+              <p>To be a good Author, you must know good Authentication.</p> 
+            </div>  
+            <button type="button" class="authorBtn" (click)="onCreate()">CREATE</button>
+            </div>
+            <div class="tablediv">
+                  <table>
+            <thead>
+                <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Books</th>
+                <th>Birth Date</th>
+                <th>Birth Place</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of authorArrs">
+                    <td>{{data.firstName}}</td>
+                    <td>{{data.lastName}}</td>
+                    <td>{{data.books}}</td>
+                    <td>{{data.birthDate}}</td>
+                    <td>{{data.birthPlace}}</td>
+                    <td>{{data.description}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+            </div>
+        </div>
+        </div>
+    </main>
+</body>
+</html>

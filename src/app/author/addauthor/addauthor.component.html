@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="mainC">
+               <div class="contC">
+            <div class="headPartC">
+              <div class="contLeftC">
+             <h3>CREATE AUTHOR</h3>
+            </div>  
+            </div>
+            <form [formGroup]="dataForm" (ngSubmit)="onSubmit()" >
+                <div class="addInputC">
+                    <div class="formDiv">
+                      <div  class="divC">
+                        <input type="text" placeholder="FirstName" name="firstName" formControlName="firstName" >
+                     </div>
+                     <div class="errordiv" *ngIf="!dataForm.get('firstName').valid && submit && (dataForm.get('firstName').value==null)">Pleace Enter FirstName</div>  
+                    </div>
+                    <div class="formDiv">
+                      <div class="divC">
+                        <input type="text" placeholder="LastName" name="lastName" formControlName="lastName" >
+                    </div>
+                    <div class="errordiv" *ngIf="!dataForm.get('lastName').valid && submit && (dataForm.get('lastName').value==null) ">Pleace Enter LastName</div>  
+                    </div>
+                    <div class="formDiv" formGroupName="book" onsubmit="onSubmit()">
+                      <div *ngFor="let bk of bookType.controls; let i=index">
+                       <div class="divC" [formGroupName]="i">
+                        {{i}}
+                        <input type="text" placeholder="Book" name="books" formControlName="books" >
+                    </div>
+                    </div> 
+                      </div>
+                      <button type="button" (click)="addBook()">ADD</button>
+                    <div class="formDiv">
+                       <div class="divC">
+                        <input type="text" placeholder="BirthDate" name="birthDate" formControlName="birthDate" >
+                    </div>
+                    <div class="errordiv" *ngIf="!dataForm.get('birthDate').valid && submit && (dataForm.get('birthDate').value==null)">Pleace Enter BirthDate</div> 
+                  </div>
+                    <div class="formDiv">
+                       <div class="divC">
+                        <input type="text" placeholder="BirthPlace" name="birthPlace" formControlName="birthPlace" >
+                    </div>
+                    <div class="errordiv" *ngIf="!dataForm.get('birthPlace').valid && submit && (dataForm.get('birthPlace').value==null)">Pleace Enter BirthPlace</div> 
+                    </div>
+                    <div class="formDiv">
+                      <div class="descriptionC">
+                        <input type="text" placeholder="Description"  name="description" formControlName="description" >
+                    </div>
+                    <div class="errordiv" *ngIf="!dataForm.get('description').valid && submit && (dataForm.get('description').value==null)">Pleace Enter Description</div>  
+                    </div>
+                </div>
+            </form>
+            <button type="button" class="authorBtnC" (click)="onAddBtn()">ADD</button>
+        </div>
+        </div>
+    </main>
+</body>
+</html>
