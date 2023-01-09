@@ -36,7 +36,8 @@
                         <input type="text" placeholder="Book" name="books" formControlName="books" >
                     </div>
                     </div> 
-                      </div>
+                       <div class="errordiv" *ngIf="!dataForm.get('birthDate').valid && submit && (dataForm.get('birthDate').value==null)">Pleace Enter Book Name</div> 
+                    </div>
                       <button type="button" (click)="addBook()">ADD</button>
                     <div class="formDiv">
                        <div class="divC">
